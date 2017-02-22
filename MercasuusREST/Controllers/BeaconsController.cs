@@ -12,7 +12,8 @@ using MercasuusREST.Models;
 
 namespace MercasuusREST.Controllers
 {
-    public class BeaconController : ApiController
+    [RoutePrefix("api/Beacons")]
+    public class BeaconsController : ApiController
     {
         private BeaconDBContext db = new BeaconDBContext();
 
@@ -97,6 +98,36 @@ namespace MercasuusREST.Controllers
 
             db.Beacons.Remove(beacon);
             db.SaveChanges();
+
+            return Ok(beacon);
+        }
+
+        /// <summary>
+        /// GET: api/Beacon/Store/1
+        /// </summary>
+        /// <param name="storeID"></param>
+        /// <returns>Beacon array</returns>     
+        [Route("Store/{storeID}")]        
+        public IQueryable<Beacon> GetBeaconsByStore(int storeID)
+        {
+            return db.Beacons.Where(e => e.storeID == storeID);
+        }
+
+        /// <summary>
+        /// GET: api/Beacon/2/1
+        /// </summary>
+        /// <param name="major"></param>
+        /// <param name="minor"></param>
+        /// <returns>Beacon array</returns>     
+        [Route("{major}/{minor}")]
+        public IHttpActionResult GetBeaconsByMajorAndMinor(int major, int minor)
+        {
+            //return db.Beacons.Where(e => e.major == major && e.minor == minor);
+            Beacon beacon = db.Beacons.SingleOrDefault(b => b.major == major & b.minor == minor);
+            if (beacon == null)
+            {
+                return NotFound();
+            }
 
             return Ok(beacon);
         }

@@ -13,6 +13,7 @@ using MercasuusREST.Models;
 
 namespace MercasuusREST.Controllers
 {
+    [RoutePrefix("api/Stores")]
     public class StoresController : ApiController
     {
         private StoreDBContext db = new StoreDBContext();
@@ -100,6 +101,17 @@ namespace MercasuusREST.Controllers
             await db.SaveChangesAsync();
 
             return Ok(store);
+        }
+
+        /// <summary>
+        /// GET: api/Stores/Company/1
+        /// </summary>
+        /// <param name="companyID"></param>
+        /// <returns></returns>
+        [Route("Company/{companyID}")]
+        public IQueryable<Store> GetStoresByCompany(int companyID)
+        {
+            return db.Stores.Where(s => s.companyID == companyID);
         }
 
         protected override void Dispose(bool disposing)

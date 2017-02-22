@@ -10,8 +10,10 @@ namespace MercasuusREST.Models
     public class Store
     {
         public int storeID { get; set; }
-        public String storeName { get; set; }
-        public String storeDesc { get; set; }
+        public int companyID { get; set; }
+        public String username { get; set; }
+        public String password { get; set; }
+        public String storeAddress { get; set; }
     }
 
     public class StoreDBContext : DbContext

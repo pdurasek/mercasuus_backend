@@ -13,6 +13,7 @@ using MercasuusREST.Models;
 
 namespace MercasuusREST.Controllers
 {
+    [RoutePrefix("api/Products")]
     public class ProductsController : ApiController
     {
         private ProductDBContext db = new ProductDBContext();
@@ -100,6 +101,28 @@ namespace MercasuusREST.Controllers
             await db.SaveChangesAsync();
 
             return Ok(product);
+        }
+
+        /// <summary>
+        /// GET: api/Products/Store/1
+        /// </summary>
+        /// <param name="storeID"></param>
+        /// <returns>Products array</returns>
+        [Route("Store/{storeID}")]
+        public IQueryable<Product> GetProductByStore(int storeID)
+        {
+            return db.Products.Where(e => e.storeID == storeID);
+        }
+
+        /// <summary>
+        /// GET: api/Products/Beacon/1
+        /// </summary>
+        /// <param name="beaconID"></param>
+        /// <returns></returns>
+        [Route("Beacon/{beaconID}")]
+        public IQueryable<Product> GetProductByBeacon(int beaconID)
+        {
+            return db.Products.Where(e => e.beaconID == beaconID);
         }
 
         protected override void Dispose(bool disposing)
