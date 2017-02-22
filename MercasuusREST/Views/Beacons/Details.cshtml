@@ -1,0 +1,50 @@
+﻿@model MercasuusREST.Models.Beacon
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Beacon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.uuid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uuid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.major)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.major)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.minor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.minor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.storeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.storeID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.beaconID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

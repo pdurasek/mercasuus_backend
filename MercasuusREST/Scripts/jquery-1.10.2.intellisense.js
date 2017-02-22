@@ -1126,13 +1126,13 @@ intellisense.annotate(jQuery.fn, {
   },
   'data': function() {
     /// <signature>
-    ///   <summary>Store arbitrary data associated with the matched elements.</summary>
+    ///   <summary>Stores arbitrary data associated with the matched elements.</summary>
     ///   <param name="key" type="String">A string naming the piece of data to set.</param>
     ///   <param name="value" type="Object">The new data value; it can be any Javascript type including Array or Object.</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
-    ///   <summary>Store arbitrary data associated with the matched elements.</summary>
+    ///   <summary>Stores arbitrary data associated with the matched elements.</summary>
     ///   <param name="obj" type="Object">An object of key-value pairs of data to update.</param>
     ///   <returns type="jQuery" />
     /// </signature>

@@ -29,5 +29,7 @@ namespace MercasuusREST.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MercasuusREST.Models.Product> Products { get; set; }
     }
 }
