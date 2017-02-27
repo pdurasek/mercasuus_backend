@@ -13,7 +13,6 @@ using MercasuusREST.Models;
 
 namespace MercasuusREST.Controllers
 {
-    [Authorize]
     public class CompaniesController : ApiController
     {
         private CompanyDBContext db = new CompanyDBContext();

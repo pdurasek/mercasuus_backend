@@ -18,8 +18,7 @@ using MercasuusREST.Providers;
 using MercasuusREST.Results;
 
 namespace MercasuusREST.Controllers
-{
-    [Authorize]
+{    
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {

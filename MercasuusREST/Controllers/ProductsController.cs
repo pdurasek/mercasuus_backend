@@ -18,13 +18,14 @@ namespace MercasuusREST.Controllers
     {
         private ProductDBContext db = new ProductDBContext();
 
-        // GET: api/Products
+        // GET: api/Products    
         public IQueryable<Product> GetProducts()
-        {
+        {            
             return db.Products;
         }
 
         // GET: api/Products/5
+        /*
         [ResponseType(typeof(Product))]
         public async Task<IHttpActionResult> GetProduct(int id)
         {
@@ -35,6 +36,17 @@ namespace MercasuusREST.Controllers
             }
 
             return Ok(product);
+        }
+        */
+
+        // GET: api/Products/5        
+        public List<Product> GetProduct(int id)
+        {
+            Product product = db.Products.Find(id);
+            List<Product> products = new List<Product>();
+            products.Add(product);
+
+            return products;
         }
 
         // PUT: api/Products/5
